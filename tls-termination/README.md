@@ -55,4 +55,7 @@ and linked from `/etc/letsencrypt/live/your.host.name` so either of them should 
 
 ### `ZORP_TLS_TERMINATION_SERVICE_ENABLED`
 
-This variable is mandatory and specifies the space separated list of services that will be enabled for TLS termination. Now the only possible value is https.
+This variable is mandatory and specifies the space separated list of services that will be enabled for TLS termination. The following values are accepted:
+
+* https
+* imaps
