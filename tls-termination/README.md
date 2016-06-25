@@ -59,3 +59,4 @@ This variable is mandatory and specifies the space separated list of services th
 
 * https
 * imaps
+* smtps
