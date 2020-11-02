@@ -18,7 +18,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get autoremove -y \
  && rm -rf /tmp/*
 
 RUN cd /usr/src/libzorpll \
- && ./autogen.sh \
+ && autoreconf -if \
  && ./configure --enable-debug \
     --prefix=/usr \
     --mandir=/usr/share/man \
@@ -30,7 +30,7 @@ RUN cd /usr/src/libzorpll \
  && make install
 
 RUN cd /usr/src/zorp \
- && ./autogen.sh \
+ && autoreconf -if \
  && ./configure --enable-debug \
     --prefix=/usr \
     --mandir=/usr/share/man \
