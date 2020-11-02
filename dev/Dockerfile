@@ -25,8 +25,8 @@ RUN cd /usr/src/libzorpll \
     --infodir=/usr/share/info \
     --sysconfdir=/etc \
     --libexecdir=/usr/libzorpll \
- && make \
- && make check \
+ && make -j \
+ && make check -j \
  && make install
 
 RUN cd /usr/src/zorp \
@@ -38,6 +38,6 @@ RUN cd /usr/src/zorp \
     --localstatedir=/var/lib/zorp \
     --sysconfdir=/etc \
     --with-pidfiledir=/var/run/zorp/ \
- && make \
- && make check \
+ && make -j \
+ && make check -j \
  && make install
