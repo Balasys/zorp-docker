@@ -1,4 +1,4 @@
-FROM balasys/zorpgpl
+FROM balasys/zorpgpl:6.0.12
 
 MAINTAINER Szilárd Pfeiffer "coroner@pfeifferszilard.hu"
 
@@ -10,8 +10,8 @@ RUN apt-get install -y --no-install-recommends \
     equivs \
     git-core \
     ca-certificates
-RUN git clone -b 6.0.11.0 https://github.com/Balasys/libzorpll.git /usr/src/libzorpll \
- && git clone -b 6.0.11 https://github.com/Balasys/zorp.git /usr/src/zorp \
+RUN git clone -b 6.0.12.0 https://github.com/Balasys/libzorpll.git /usr/src/libzorpll \
+ && git clone -b 6.0.12 https://github.com/Balasys/zorp.git /usr/src/zorp \
  && mk-build-deps -i -t "apt-get -o Debug::pkgProblemResolver=yes --yes --no-install-recommends" /usr/src/libzorpll/debian/control \
  && mk-build-deps -i -t "apt-get -o Debug::pkgProblemResolver=yes --yes --force-yes --no-install-recommends" /usr/src/zorp/debian/control
 RUN apt-get autoremove -y \
