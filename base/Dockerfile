@@ -2,12 +2,14 @@ FROM ubuntu:14.04
 
 MAINTAINER Szilárd Pfeiffer "coroner@pfeifferszilard.hu"
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 RUN apt-key adv --fetch-keys http://download.opensuse.org/repositories/security:/Zorp:/6:/0:/11/xUbuntu_14.04/Release.key \
  && echo "deb http://download.opensuse.org/repositories/security:/Zorp:/6:/0:/11/xUbuntu_14.04/ ./" >/etc/apt/sources.list.d/zorp.list \
  && apt-get update
 RUN mkdir /etc/zorp \
  && touch /etc/zorp/dh.pem \
- && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+ && apt-get install -y \
     zorp \
     zorp-modules \
  && apt-get clean \

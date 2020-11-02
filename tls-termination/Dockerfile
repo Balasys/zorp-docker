@@ -2,8 +2,10 @@ FROM balasys/zorpgpl
 
 MAINTAINER Szilárd Pfeiffer "coroner@pfeifferszilard.hu"
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 RUN apt-get update
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
+RUN apt-get install -y \
     openssl \
  && rm -rf /var/lib/apt/lists/*
 

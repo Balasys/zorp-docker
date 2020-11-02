@@ -2,8 +2,10 @@ FROM balasys/zorpgpl
 
 MAINTAINER Szilárd Pfeiffer "coroner@pfeifferszilard.hu"
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 RUN apt-get update
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
+RUN apt-get install -y \
     devscripts \
     equivs \
     git-core
@@ -11,7 +13,7 @@ RUN git clone -b 6.0.11.0 https://github.com/Balasys/libzorpll.git /usr/src/libz
  && git clone -b 6.0.11 https://github.com/Balasys/zorp.git /usr/src/zorp \
  && mk-build-deps -i -t "apt-get -o Debug::pkgProblemResolver=yes --yes --no-install-recommends" /usr/src/libzorpll/debian/control \
  && mk-build-deps -i -t "apt-get -o Debug::pkgProblemResolver=yes --yes --no-install-recommends" /usr/src/zorp/debian/control
-RUN DEBIAN_FRONTEND=noninteractive apt-get autoremove -y \
+RUN apt-get autoremove -y \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/* \
  && rm -rf /var/tmp/* \
