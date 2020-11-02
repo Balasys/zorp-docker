@@ -5,10 +5,11 @@ MAINTAINER Szilárd Pfeiffer "coroner@pfeifferszilard.hu"
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update
-RUN apt-get install -y \
+RUN apt-get install -y --no-install-recommends \
     devscripts \
     equivs \
-    git-core
+    git-core \
+    ca-certificates
 RUN git clone -b 6.0.11.0 https://github.com/Balasys/libzorpll.git /usr/src/libzorpll \
  && git clone -b 6.0.11 https://github.com/Balasys/zorp.git /usr/src/zorp \
  && mk-build-deps -i -t "apt-get -o Debug::pkgProblemResolver=yes --yes --no-install-recommends" /usr/src/libzorpll/debian/control \
