@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:19.10
 
 MAINTAINER Szilárd Pfeiffer "coroner@pfeifferszilard.hu"
 
@@ -6,13 +6,11 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update \
  && apt-get install -y --no-install-recommends gpg-agent gnupg2 \
- && apt-key adv --fetch-keys http://download.opensuse.org/repositories/security:/Zorp:/7:/0:/4/xUbuntu_18.04/Release.key \
- && echo "deb http://download.opensuse.org/repositories/security:/Zorp:/7:/0:/4/xUbuntu_18.04/ ./" >/etc/apt/sources.list.d/zorp.list \
+ && apt-key adv --fetch-keys http://download.opensuse.org/repositories/security:/Zorp:/7:/0:/4/xUbuntu_19.10/Release.key \
+ && echo "deb http://download.opensuse.org/repositories/security:/Zorp:/7:/0:/4/xUbuntu_19.10/ ./" >/etc/apt/sources.list.d/zorp.list \
  && apt-get update
 
-RUN mkdir /etc/zorp \
- && touch /etc/zorp/dh.pem \
- && apt-get install -y \
+RUN apt-get install -y \
     zorp \
     zorp-modules \
  && apt-get clean \
