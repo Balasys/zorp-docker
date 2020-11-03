@@ -6,8 +6,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update \
  && apt-get install -y --no-install-recommends gpg-agent gnupg2 \
- && apt-key adv --fetch-keys http://download.opensuse.org/repositories/security:/Zorp:/7:/0:/2/xUbuntu_18.04/Release.key \
- && echo "deb http://download.opensuse.org/repositories/security:/Zorp:/7:/0:/2/xUbuntu_18.04/ ./" >/etc/apt/sources.list.d/zorp.list \
+ && apt-key adv --fetch-keys http://download.opensuse.org/repositories/security:/Zorp:/7:/0:/3/xUbuntu_18.04/Release.key \
+ && echo "deb http://download.opensuse.org/repositories/security:/Zorp:/7:/0:/3/xUbuntu_18.04/ ./" >/etc/apt/sources.list.d/zorp.list \
  && apt-get update
 
 RUN mkdir /etc/zorp \
