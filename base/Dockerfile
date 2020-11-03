@@ -4,8 +4,8 @@ MAINTAINER Szilárd Pfeiffer "coroner@pfeifferszilard.hu"
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-key adv --fetch-keys http://download.opensuse.org/repositories/security:/Zorp:/6:/0:/12/xUbuntu_14.04/Release.key \
- && echo "deb http://download.opensuse.org/repositories/security:/Zorp:/6:/0:/12/xUbuntu_14.04/ ./" >/etc/apt/sources.list.d/zorp.list \
+RUN apt-key adv --fetch-keys http://download.opensuse.org/repositories/security:/Zorp:/7:/0:/1/xUbuntu_14.04/Release.key \
+ && echo "deb http://download.opensuse.org/repositories/security:/Zorp:/7:/0:/1/xUbuntu_14.04/ ./" >/etc/apt/sources.list.d/zorp.list \
  && apt-get update
 RUN mkdir /etc/zorp \
  && touch /etc/zorp/dh.pem \

@@ -1,4 +1,4 @@
-FROM balasys/zorpgpl:6.0.12
+FROM balasys/zorpgpl:7.0.1
 
 MAINTAINER Szilárd Pfeiffer "coroner@pfeifferszilard.hu"
 
