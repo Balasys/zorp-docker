@@ -1,12 +1,15 @@
-FROM ubuntu:14.04
+FROM ubuntu:18.04
 
 MAINTAINER Szilárd Pfeiffer "coroner@pfeifferszilard.hu"
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-key adv --fetch-keys http://download.opensuse.org/repositories/security:/Zorp:/7:/0:/1/xUbuntu_14.04/Release.key \
- && echo "deb http://download.opensuse.org/repositories/security:/Zorp:/7:/0:/1/xUbuntu_14.04/ ./" >/etc/apt/sources.list.d/zorp.list \
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends gpg-agent gnupg2 \
+ && apt-key adv --fetch-keys http://download.opensuse.org/repositories/security:/Zorp:/7:/0:/1/xUbuntu_18.04/Release.key \
+ && echo "deb http://download.opensuse.org/repositories/security:/Zorp:/7:/0:/1/xUbuntu_18.04/ ./" >/etc/apt/sources.list.d/zorp.list \
  && apt-get update
+
 RUN mkdir /etc/zorp \
  && touch /etc/zorp/dh.pem \
  && apt-get install -y \
