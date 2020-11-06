@@ -4,7 +4,10 @@ MAINTAINER Szilárd Pfeiffer "coroner@pfeifferszilard.hu"
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends \
+    flake8 pylint
+
 RUN apt-get install -y --no-install-recommends \
     devscripts \
     equivs \
